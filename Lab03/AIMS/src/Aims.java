@@ -65,9 +65,12 @@ public class Aims {
 				"Animation", 
 				18.99f);
 		
+		//test overloading addDigitalVideoDisc method with 2 parameters
 		anOrder.addDigitalVideoDisc(items[0], items[1]);
 	
+		//test overloading addDigitalVideoDisc method with arbitrary number of discs added
 		anOrder.addDigitalVideoDisc(items[0], 3);
 		
+		System.out.println(anOrder.totalCost());
 	}
 }
