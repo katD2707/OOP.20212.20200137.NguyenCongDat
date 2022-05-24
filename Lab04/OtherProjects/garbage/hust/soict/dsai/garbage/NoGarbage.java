@@ -8,7 +8,7 @@ public class NoGarbage {
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String filename = "D:\\HP toán và khoa học\\Applied Statistics and Experimental Design\\group project\\test.txt";
+		String filename = "../test.txt";
 		byte[] inputBytes = {0};
 		long startTime, endTime;
 				
