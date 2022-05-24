@@ -1,3 +1,5 @@
+package hust.soict.dsai.aims.disc;
+
 import java.time.LocalDate;
 
 public class DigitalVideoDisc {
@@ -8,12 +10,16 @@ public class DigitalVideoDisc {
 	private float cost;
 	private final LocalDate dateAdded;
 	private static int nbDigitalVideoDiscs = 0;
-	
+	private static int count = 0;
+	private int id = 0;
+
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
 		this.dateAdded = LocalDate.now();
-		
+		DigitalVideoDisc.nbDigitalVideoDiscs += 1;
+		DigitalVideoDisc.count += 1;
+		this.id = DigitalVideoDisc.count;
 	}
 	
 	public DigitalVideoDisc(String title, String category, float cost) {
@@ -49,6 +55,22 @@ public class DigitalVideoDisc {
 		return cost;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public LocalDate getDateAdded() {
+		return dateAdded;
+	}
+
+	public static int getNbDigitalVideoDiscs() {
+		return nbDigitalVideoDiscs;
+	}
+
+	public static int getCount() {
+		return count;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -67,5 +89,28 @@ public class DigitalVideoDisc {
 
 	public void setCost(float cost) {
 		this.cost = cost;
+	}
+	
+	public String toString() {
+		return "DVD - " + this.getTitle() + " - " + 
+				((this.getCategory()=="") ? null : this.getCategory()) + " - " + 
+				((this.getDirector()=="") ? null : this.getDirector()) + " - " + 
+				((this.getLength()==0) ? null : this.getLength()) + ": " + 
+				((this.getCost()==0.) ? null : (this.getCost() + "$")); 
+	}
+	
+	public boolean isMatch(String title) {
+		String[] tokens = title.toLowerCase().trim().split("\\s+");
+		String[] discTitle = this.getTitle().toLowerCase().trim().split("\\s+");
+		
+		for (int i=0; i<tokens.length; i++) {
+			for (int j=0; j<discTitle.length; j++) {
+				if (discTitle[j].equals(tokens[i])) {
+					return true;
+				}
+			}
+		}
+		return false;
+		
 	}
 }

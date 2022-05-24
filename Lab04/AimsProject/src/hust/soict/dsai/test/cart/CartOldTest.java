@@ -1,15 +1,17 @@
+package hust.soict.dsai.test.cart;
 
-public class Aims {
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
+public class CartOldTest {
 	public static void main(String[] args) {
 		// Create new Cart
 		Cart anOrder = new Cart();
 		
 		//Create new dvd objects and add them to the cart
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", 
+		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Aladin", 
 													"Animation", 
-													"Roger Allers", 
-													87, 
-													19.95f);
+													18.99f); 
 		anOrder.addDigitalVideoDisc(dvd1);
 
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", 
@@ -29,16 +31,31 @@ public class Aims {
 													21.91f);
 		anOrder.addDigitalVideoDisc(dvd4);
 		
-		DigitalVideoDisc dvd5 = new DigitalVideoDisc("Aladin", 
+		DigitalVideoDisc dvd5 = new DigitalVideoDisc("The Lion King", 
+													"Animation", 
+													"Roger Allers", 
+													87, 
+													19.95f);
+		anOrder.addDigitalVideoDisc(dvd5);
+		
+		DigitalVideoDisc dvd6 = new DigitalVideoDisc("Aladin", 
 													"Animation", 
 													18.99f);
-		anOrder.addDigitalVideoDisc(dvd5);
+		anOrder.addDigitalVideoDisc(dvd6);
+		
+		DigitalVideoDisc dvd7 = new DigitalVideoDisc("Aladin", 
+													"Animation", 
+													18.99f);
+		anOrder.addDigitalVideoDisc(dvd7);
+
 		//print total cost of the items in the cart
-		System.out.println("Total cost is: ");
+		System.out.print("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 		
 		//test removeDigitalVideoDisc method
-		anOrder.removeDigitalVideoDisc(dvd5);
+		anOrder.removeDigitalVideoDisc(dvd1);
+		System.out.print("Total cost is: ");
+		System.out.println(anOrder.totalCost());
 		
 		//test overloading addDigitalVideoDisc method
 		DigitalVideoDisc items[] = new DigitalVideoDisc[5];
