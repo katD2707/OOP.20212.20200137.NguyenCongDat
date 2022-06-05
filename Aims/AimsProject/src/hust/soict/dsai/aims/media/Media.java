@@ -20,7 +20,7 @@ public abstract class Media {
 		this.id = count;
 		nbMedia ++;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
