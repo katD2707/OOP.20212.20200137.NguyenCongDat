@@ -2,12 +2,11 @@ package hust.soict.dsai.aims.media;
 
 import java.time.LocalDate;
 
-public class DigitalVideoDisc extends Media {
-	private String director;
-	private int length;
+public class DigitalVideoDisc extends Disc {
 	private final LocalDate dateAdded;
 	private static int nbDigitalVideoDiscs = 0;
 	private static int count = 0;
+	
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
@@ -33,12 +32,6 @@ public class DigitalVideoDisc extends Media {
 		this.length = length;
 	}
 
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
 	public LocalDate getDateAdded() {
 		return dateAdded;
 	}
