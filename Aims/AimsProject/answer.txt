@@ -1,0 +1,2 @@
+Question: Write a toString() method for the DigitalVideoDisc class. What should be the return type of this method?
+- As the method name might have answered the question, we should return String type.
