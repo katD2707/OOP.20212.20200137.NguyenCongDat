@@ -58,6 +58,8 @@ public class Aims {
 		Store store = new Store();
 		Cart cart = new Cart();
 		MemoryDaemon memory = new MemoryDaemon();
+		memory.run();
+		
 		boolean stop0 = false;
 		while (stop0 != true) {
 			showMenu();

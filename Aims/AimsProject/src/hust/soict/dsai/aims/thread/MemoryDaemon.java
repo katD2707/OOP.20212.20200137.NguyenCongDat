@@ -1,10 +1,12 @@
 package hust.soict.dsai.aims.thread;
 
 public class MemoryDaemon {
+	long memoryUsed = 0;
+	
 	public void run() {
 		Runtime rt = Runtime.getRuntime();
 		long used;
-		long memoryUsed = 0;
+		
 		
 		while (true) {
 			used = rt.totalMemory() - rt.freeMemory();
