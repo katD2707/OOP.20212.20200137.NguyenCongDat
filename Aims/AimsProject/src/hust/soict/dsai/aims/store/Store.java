@@ -5,7 +5,6 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
 public class Store {
-	public static final int MAX_STORE_ITEMS = 1000;
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
 	public void addMedia(Media media) {
