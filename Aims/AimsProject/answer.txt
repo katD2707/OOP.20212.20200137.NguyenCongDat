@@ -1,0 +1,4 @@
+Which classes are aggregates of other classes?
+Answer:
+-	class Media, Book, Disc, CompactDisc, DigitalVideoDisc are aggregate of class Cart and Store
+-	class Track is aggregates of class CompactDisc
