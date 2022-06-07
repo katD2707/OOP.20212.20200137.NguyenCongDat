@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
+import hust.soict.dsai.aims.thread.MemoryDaemon;
 
 public class Aims {
 	
@@ -56,7 +57,7 @@ public class Aims {
 		Scanner input = new Scanner(System.in);
 		Store store = new Store();
 		Cart cart = new Cart();
-		
+		MemoryDaemon memory = new MemoryDaemon();
 		boolean stop0 = false;
 		while (stop0 != true) {
 			showMenu();
