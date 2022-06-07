@@ -13,10 +13,10 @@ public class StoreTest {
 													"Animation", 
 													18.99f);
 		
-		//test adding 1 dvd method
-		store.addDVD(dvd);
-		//test removing 1 dvd method
-		store.removeDVD(dvd);
+		//test adding 1 Digital video disc method
+		store.addMedia(dvd);
+		//test removing 1 Digital video disc method
+		store.removeMedia(dvd);
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Aladin", 
 						"Animation", 
@@ -50,12 +50,12 @@ public class StoreTest {
 						"Animation", 
 						18.99f);
 		
-		//test adding multiple dvds method
-		store.addDVD(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
+		//test adding multiple Digital video discs method
+		store.addMedia(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
 		store.displayStore();
 		
-		//test removing multiple dvds method
-		store.removeDVD(dvd3, dvd4, dvd5);
+		//test removing multiple Digital video discs method
+		store.removeMedia(dvd3);
 		
 	}
 

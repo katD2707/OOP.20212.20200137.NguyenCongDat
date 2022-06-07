@@ -8,52 +8,52 @@ public class CartOldTest {
 		// Create new Cart
 		Cart anOrder = new Cart();
 		
-		//Create new dvd objects and add them to the cart
+		//Create new digital video disc objects and add them to the cart
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Aladin", 
 													"Animation", 
 													18.99f); 
-		anOrder.addDigitalVideoDisc(dvd1);
+		anOrder.addMedia(dvd1);
 
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", 
 													"Science Fiction", 
 													"George Lucas", 
 													87, 
 													24.95f);
-		anOrder.addDigitalVideoDisc(dvd2);
+		anOrder.addMedia(dvd2);
 		
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", 
 													"Animation", 
 													18.99f);
-		anOrder.addDigitalVideoDisc(dvd3);
+		anOrder.addMedia(dvd3);
 		
 		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Snow white", 
 													"Animation", 
 													21.91f);
-		anOrder.addDigitalVideoDisc(dvd4);
+		anOrder.addMedia(dvd4);
 		
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc("The Lion King", 
 													"Animation", 
 													"Roger Allers", 
 													87, 
 													19.95f);
-		anOrder.addDigitalVideoDisc(dvd5);
+		anOrder.addMedia(dvd5);
 		
 		DigitalVideoDisc dvd6 = new DigitalVideoDisc("Aladin", 
 													"Animation", 
 													18.99f);
-		anOrder.addDigitalVideoDisc(dvd6);
+		anOrder.addMedia(dvd6);
 		
 		DigitalVideoDisc dvd7 = new DigitalVideoDisc("Aladin", 
 													"Animation", 
 													18.99f);
-		anOrder.addDigitalVideoDisc(dvd7);
+		anOrder.addMedia(dvd7);
 
 		//print total cost of the items in the cart
 		System.out.print("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 		
 		//test removeDigitalVideoDisc method
-		anOrder.removeDigitalVideoDisc(dvd1);
+		anOrder.removeMedia(dvd1);
 		System.out.print("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 		
@@ -83,10 +83,10 @@ public class CartOldTest {
 				18.99f);
 		
 		//test overloading addDigitalVideoDisc method with 2 parameters
-		anOrder.addDigitalVideoDisc(items[0], items[1]);
+		anOrder.addMedia(items[0], items[1]);
 	
 		//test overloading addDigitalVideoDisc method with arbitrary number of discs added
-		anOrder.addDigitalVideoDisc(items[0], 3);
+		anOrder.addMedia(items[0], items[2], items[4]);
 		
 		System.out.println(anOrder.totalCost());
 	}

@@ -10,15 +10,28 @@ public abstract class Media {
 	protected float cost;
 	private static int nbMedia = 0;
 	private final LocalDate dateAddedMedia;
-	private static int count = 0;
-
 	
 	public Media() {
 		// TODO Auto-generated constructor stub
 		this.dateAddedMedia = LocalDate.now();
-		count ++;
-		this.id = count;
+	}
+	
+	public Media(String title) {
+		this();
 		nbMedia ++;
+		this.id = nbMedia;
+		
+		this.title = title;
+	}
+	
+	public Media(String title, float cost) {
+		this(title);
+		this.cost = cost;
+	}
+	
+	public Media(String title, String category, float cost) {
+		this(title, cost);
+		this.category = category;
 	}
 	
 	public int getId() {
@@ -65,8 +78,22 @@ public abstract class Media {
 		return dateAddedMedia;
 	}
 	
+	public boolean isMatch(String title) {
+		String[] tokens = title.toLowerCase().trim().split("\\s+");
+		String[] discTitle = this.getTitle().toLowerCase().trim().split("\\s+");
+		
+		for (int i=0; i<tokens.length; i++) {
+			for (int j=0; j<discTitle.length; j++) {
+				if (discTitle[j].equals(tokens[i])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
-	
-	
+	public String toString() {
+		return "I'm just a media!";
+	}
 
 }
