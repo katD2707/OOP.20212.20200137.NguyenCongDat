@@ -57,8 +57,8 @@ public class Aims {
 		Scanner input = new Scanner(System.in);
 		Store store = new Store();
 		Cart cart = new Cart();
-		MemoryDaemon memory = new MemoryDaemon();
-		memory.run();
+//		MemoryDaemon memory = new MemoryDaemon();
+//		memory.run();
 		
 		boolean stop0 = false;
 		while (stop0 != true) {

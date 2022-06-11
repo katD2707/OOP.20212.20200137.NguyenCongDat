@@ -67,8 +67,11 @@ public class Store {
 		System.out.println("----------------------------------------------------------------");
 		int n_find = 0;
 		for (Media media: itemsInStore) {
-			n_find = 1;
-			System.out.println(media.isMatch(title));
+			if (media.isMatch(title)) {
+				n_find = 1;
+				media.play();
+			}
+			
 		}
 		if (n_find==0) {
 			System.out.println("No match is found");

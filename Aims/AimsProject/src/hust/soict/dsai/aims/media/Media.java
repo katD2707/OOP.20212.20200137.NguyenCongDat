@@ -96,4 +96,9 @@ public abstract class Media {
 		return "I'm just a media!";
 	}
 
+	public void play() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
