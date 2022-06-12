@@ -63,20 +63,21 @@ public class Store {
 		System.out.println();
 	}
 	
-	public void searchByTitle(String title) {
+	public String searchByTitle(String title) {
 		System.out.println("----------------------------------------------------------------");
 		int n_find = 0;
 		for (Media media: itemsInStore) {
 			if (media.isMatch(title)) {
 				n_find = 1;
-				media.play();
+				return media.toString();
 			}
 			
 		}
 		if (n_find==0) {
-			System.out.println("No match is found");
+			return "No match is found";
 		}
 		System.out.println("----------------------------------------------------------------");
+		return "";
 	}
 	
 	public Media getMedia(String title) {

@@ -176,5 +176,7 @@ public class Cart {
 	public int getNumOrdered() {
 		return this.itemsOrdered.size();
 	}
+	
+	
 }
 

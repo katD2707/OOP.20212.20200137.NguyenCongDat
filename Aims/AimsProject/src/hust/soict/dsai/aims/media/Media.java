@@ -14,13 +14,12 @@ public abstract class Media {
 	public Media() {
 		// TODO Auto-generated constructor stub
 		this.dateAddedMedia = LocalDate.now();
+		nbMedia ++;
+		this.id = nbMedia;
 	}
 	
 	public Media(String title) {
 		this();
-		nbMedia ++;
-		this.id = nbMedia;
-		
 		this.title = title;
 	}
 	
@@ -95,10 +94,13 @@ public abstract class Media {
 	public String toString() {
 		return "I'm just a media!";
 	}
-
-	public void play() {
-		// TODO Auto-generated method stub
-		
+	
+	@Override 
+	public boolean equals(Object media) {
+		if (this.getId()==((Media)media).getId()) {
+			return true;
+		}
+		return false;
 	}
 
 }

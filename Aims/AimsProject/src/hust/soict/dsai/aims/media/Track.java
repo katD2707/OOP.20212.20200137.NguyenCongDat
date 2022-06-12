@@ -35,4 +35,13 @@ public class Track implements Playable {
 			System.out.println("Track length: " + this.getLength());
 		}
 	}
+	
+	@Override
+	public boolean equals(Object track) {
+		if ((this.getLength()==((Track)track).getLength()) && 
+				(this.getTitle().toLowerCase().contains(((Track)track).getTitle().toLowerCase()))) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -39,7 +39,7 @@ public class CartTest {
 													"Animation", 
 													18.99f);
 		cart.addMedia(dvd5);
-		
+		cart.removeMedia(dvd1);
 		//Test print method
 		cart.print();
 		//Test search method
