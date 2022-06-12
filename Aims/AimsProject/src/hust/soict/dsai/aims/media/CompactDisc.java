@@ -46,7 +46,7 @@ public class CompactDisc extends Disc implements Playable {
 	
 	public void addTrack(Track track_pending) {
 		for (Track track: tracks) {
-			if (track.getTitle().equals(track_pending.getTitle())) {
+			if (track.equals(track_pending)) {
 				System.out.println("The track is already in the list of tracks");
 				return ;
 			}
