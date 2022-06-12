@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.utils;
 
 import java.util.ArrayList;
+
 import hust.soict.dsai.aims.media.Media;
 
 public class MediaUtils {
@@ -58,41 +59,12 @@ public class MediaUtils {
 		return message;
 	}
 	
-	public static ArrayList<Media> sortByCost(ArrayList<Media> dvd_list) {
-		if (dvd_list.size()==1) {
-			return dvd_list;
-		}
-		for (int i=1; i<dvd_list.size(); i++) {
-			for (int j=0; j<i; j++) {
-				if (dvd_list.get(j).getCost() < dvd_list.get(i).getCost()) {
-					swap(dvd_list, j, i);
-				}
-				else if (dvd_list.get(j).getCost() == dvd_list.get(i).getCost()) {
-					int compareTitle = (dvd_list.get(j).getTitle().toLowerCase()).compareTo(dvd_list.get(i).getTitle().toLowerCase());
-					if (compareTitle>0) {
-						swap(dvd_list, j, i);
-					}
-				}
-			}
-		}
-		return dvd_list;
+	public static void sortByCost(ArrayList<Media> dvd_list) {
+		java.util.Collections.sort(dvd_list, Media.COMPARE_BY_COST_TITLE);
 	}
 	
-	public static ArrayList<Media> sortByTitle(ArrayList<Media> dvd_list) {
-		for (int i=1; i<dvd_list.size(); i++) {
-			for (int j=0; j<i; j++) {
-				int compareTitle = (dvd_list.get(j).getTitle().toLowerCase()).compareTo(dvd_list.get(i).getTitle().toLowerCase());
-				if (compareTitle>0) {
-					swap(dvd_list, j, i);
-				}
-				else if (compareTitle==0) {
-					if (dvd_list.get(j).getCost() < dvd_list.get(i).getCost()) {
-						swap(dvd_list, j, i);
-					}
-				}
-			}
-		}
-		return dvd_list;
+	public static void sortByTitle(ArrayList<Media> dvd_list) {
+		java.util.Collections.sort(dvd_list, Media.COMPARE_BY_TITLE_COST);
 	}
 	
 }

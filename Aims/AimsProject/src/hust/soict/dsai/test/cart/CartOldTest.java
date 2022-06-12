@@ -83,11 +83,11 @@ public class CartOldTest {
 				18.99f);
 		
 		//test overloading addDigitalVideoDisc method with 2 parameters
-		anOrder.addMedia(items[0], items[1]);
+		anOrder.addMedia(items[0]);
 	
 		//test overloading addDigitalVideoDisc method with arbitrary number of discs added
-		anOrder.addMedia(items[0], items[2], items[4]);
-		
+		anOrder.addMedia(items[2]);
+		anOrder.addMedia(items[4]);
 		System.out.println(anOrder.totalCost());
 	}
 }

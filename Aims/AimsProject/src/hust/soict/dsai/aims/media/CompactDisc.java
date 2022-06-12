@@ -77,15 +77,28 @@ public class CompactDisc extends Disc implements Playable {
 	
 	public void play() {
 		System.out.println("Playing CD " + this.getTitle());
-		System.out.println("CD length: " + ((this.getLength()==0)?null:this.getLength()));
+		System.out.println("CD length: " + ((this.getLength()<=0)?null:this.getLength()));
 		System.out.println("CD artist: " + ((this.getArtist()=="")?null:this.getArtist()));
-		System.out.println("CD category: " + ((this.getCategory()=="")?null:this.getCategory()));
-		System.out.println("CD director: " + ((this.getDirector()=="")?null:this.getDirector()));
-		System.out.println("CD cost: " + ((this.getCategory()=="")?null:this.getCost()));
 		System.out.println("-------------------------------------------------------------------------");
 		for (Track  track: tracks) {
 			track.play();
 		}
+	}
+	
+	public String toString() {
+		System.out.println("Compact disc: " + this.getTitle());
+		System.out.println("Category: " + this.getCategory()); 
+		System.out.println("Artist: " + this.getArtist());
+		System.out.println("Director: " + this.getDirector()); 
+		System.out.println("Length: " + this.getLength());
+		System.out.println("Cost: " + this.getCost());
+		
+		for (Track  track: tracks) {
+			System.out.println(track.toString());
+		}
+		
+		return null;
+		
 	}
 	
 }

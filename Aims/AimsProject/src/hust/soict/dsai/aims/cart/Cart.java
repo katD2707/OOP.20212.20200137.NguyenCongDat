@@ -57,7 +57,7 @@ public class Cart {
 	
 	public void costSortDisplay() {
 		System.out.println("----------------------------------------------------------------");
-		this.itemsOrdered = MediaUtils.sortByCost(itemsOrdered);
+		MediaUtils.sortByCost(itemsOrdered);
 		System.out.println("Sort by cost: ");
 		for (Media media: itemsOrdered) {
 			System.out.println(media.toString());
@@ -67,7 +67,7 @@ public class Cart {
 	
 	public void titleSortDisplay() {
 		System.out.println("----------------------------------------------------------------");
-		this.itemsOrdered = MediaUtils.sortByTitle(itemsOrdered);
+		MediaUtils.sortByTitle(itemsOrdered);
 		System.out.println("Sort by title: ");
 		for (Media media: itemsOrdered) {
 			System.out.println(media.toString());
@@ -100,7 +100,7 @@ public class Cart {
 		
 	}
 	public void print() {
-		this.itemsOrdered = MediaUtils.sortByTitle(itemsOrdered);
+		MediaUtils.sortByTitle(itemsOrdered);
 		System.out.println("***********************CART***********************");
 		for (Media media: itemsOrdered) {
 			System.out.println(media.toString());
