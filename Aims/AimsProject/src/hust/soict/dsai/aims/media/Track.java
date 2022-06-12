@@ -37,6 +37,11 @@ public class Track implements Playable {
 	}
 	
 	@Override
+	public String toString() {
+		return "Track: " + this.getTitle() + "\n" + "Length: " + this.getLength();
+	}
+	
+	@Override
 	public boolean equals(Object track) {
 		if ((this.getLength()==((Track)track).getLength()) && 
 				(this.getTitle().toLowerCase().contains(((Track)track).getTitle().toLowerCase()))) {

@@ -54,10 +54,10 @@ public class Book extends Media{
 	
 	public String toString() {
 		return "Book: " + this.getTitle() + " - " + 
-				"Category: " + ((this.getCategory()=="") ? null : this.getCategory()) + 
+				"Category: " + this.getCategory() + 
 				"\n" + "Authors: " + "\n" + 
 				((this.authors.size()==0) ? null : String.join("||", this.authors)) + "\n" +
-				"Cost: " + this.getCost(); 
+				"Content length: " + ((this.content==null)?null:(this.content.trim().split("\\s+").length)); 
 	}
 	
 }

@@ -11,23 +11,6 @@ public class Store {
 		this.itemsInStore.add(media);
 	}
 	
-	public void addMedia(Media media1, Media media2) {
-		if (media1 != null) {
-			this.itemsInStore.add(media1);
-		}
-		if (media2 != null) {
-			this.itemsInStore.add(media2);
-		}
-	}
-	
-	public void addMedia(Media... medias) {
-		for (Media media: medias) {
-			if (media != null) {
-				this.itemsInStore.add(media);
-			}
-		}
-	}
-	
 	public void removeMedia(Media media) {
 		ArrayList<Media> newOrdered = new ArrayList<Media>();
 		int before = itemsInStore.size();

@@ -29,7 +29,7 @@ public class StoreTest {
 						24.95f);
 		
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", 
-						"Animation", 
+						"Fantasy", 
 						18.99f);
 		
 		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Snow white", 
@@ -51,7 +51,14 @@ public class StoreTest {
 						18.99f);
 		
 		//test adding multiple Digital video discs method
-		store.addMedia(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
+		store.addMedia(dvd1);
+		store.addMedia(dvd2);
+		store.addMedia(dvd3);
+		store.addMedia(dvd4);
+		store.addMedia(dvd5);
+		store.addMedia(dvd6);
+		store.addMedia(dvd7);
+		
 		store.displayStore();
 		
 		//test removing multiple Digital video discs method

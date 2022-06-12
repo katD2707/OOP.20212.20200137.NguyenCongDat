@@ -26,16 +26,16 @@ public class DVDTest {
 		arrDVD.add(dvd4);
 		arrDVD.add(dvd5);
 		
-		ArrayList<Media> sorted = MediaUtils.sortByCost(arrDVD);
+		MediaUtils.sortByCost(arrDVD);
 		System.out.println("Sort by cost: ");
-		for (int i=0; i<sorted.size(); i++) {
-			System.out.println(sorted.get(i).toString());
+		for (int i=0; i<arrDVD.size(); i++) {
+			System.out.println(arrDVD.get(i).toString());
 		}
 		
-		sorted = MediaUtils.sortByTitle(arrDVD);
+		MediaUtils.sortByTitle(arrDVD);
 		System.out.println("Sort by title: ");
-		for (int i=0; i<sorted.size(); i++) {
-			System.out.println(sorted.get(i).toString());
+		for (int i=0; i<arrDVD.size(); i++) {
+			System.out.println(arrDVD.get(i).toString());
 		}
 	}
 
