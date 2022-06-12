@@ -12,26 +12,17 @@ public class Store {
 	}
 	
 	public void removeMedia(Media media) {
-		ArrayList<Media> newOrdered = new ArrayList<Media>();
-		int before = itemsInStore.size();
-		
 		if (media==null) {
 			System.out.println("Media is blank!");
 			return ;
 		}
 		
-		for (Media item: itemsInStore) {
-			if (item.getTitle()!=media.getTitle()) {
-				newOrdered.add(item);
+		for (int i=0; i<this.itemsInStore.size(); i++) {
+			if (media.equals(this.itemsInStore.get(i))) {
+				itemsInStore.remove(i);
+				System.out.println("Media has been removed successfully");
+				return ;
 			}
-		}
-		this.itemsInStore = newOrdered;
-		int after = itemsInStore.size();
-		if (before==after) {
-			System.out.println("No media has been removed");
-		}
-		else {
-			System.out.println((before-after) + " items has been removed");
 		}
 	}
 

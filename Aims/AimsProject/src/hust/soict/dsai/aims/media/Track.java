@@ -10,10 +10,6 @@ public class Track implements Playable {
 		this.title = title;
 	}
 	
-	public Track(int length) {
-		this.length = length;
-	}
-	
 	public Track(String title, int length) {
 		this.title = title;
 		this.length = length;
