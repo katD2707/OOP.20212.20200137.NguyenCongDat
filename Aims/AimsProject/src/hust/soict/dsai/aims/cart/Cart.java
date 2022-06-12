@@ -12,6 +12,12 @@ public class Cart {
 	public void addMedia(Media media) {
 		if (itemsOrdered.size()<MAX_NUMBERS_ORDERED) {
 			if (media != null) {
+				for (Media item: itemsOrdered) {
+					if (media.equals(item)) {
+						System.out.println("Media is already in cart");
+						return ;
+					}
+				}
 				this.itemsOrdered.add(media);
 				System.out.println("Media is added successfully");
 			}
@@ -19,47 +25,6 @@ public class Cart {
 		else {
 			System.out.println("Cart is full");
 		}
-	}
-	
-	public void addMedia(Media media1, Media media2) {
-		if (itemsOrdered.size()<MAX_NUMBERS_ORDERED) {
-			if (media1 != null) {
-				this.itemsOrdered.add(media1);
-				System.out.println("Media 1 is added successfully");
-			}
-		}
-		else {
-			System.out.println("Cart is full");
-			return ;
-		}
-		if (itemsOrdered.size()<MAX_NUMBERS_ORDERED) {
-			if (media2 != null) {
-				this.itemsOrdered.add(media2);
-				System.out.println("Media 1 is added successfully");
-			}
-		}
-		else {
-			System.out.println("Cart is full");
-		}
-	}
-	
-	public void addMedia(Media... medias) {
-		int numAdded = 0;
-		for (Media media: medias) {
-			if (media != null) {
-				if (itemsOrdered.size()<MAX_NUMBERS_ORDERED) {
-					numAdded += 1;
-					this.itemsOrdered.add(media);
-				}
-				else {
-					System.out.println(numAdded + " items is added to cart");
-					System.out.println("Cart is full");
-					return ;
-				}
-			}
-		}
-		System.out.println("Every item is added successfully");
-		
 	}
 	
 	public void removeMedia(Media media) {
