@@ -12,7 +12,7 @@ public abstract class Media implements Comparable<Media> {
 	protected String title;
 	protected String category;
 	protected float cost;
-	private static int nbMedia = 0;
+	protected static int nbMedia = 0;
 	private final LocalDate dateAddedMedia;
 	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
 	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
@@ -113,6 +113,9 @@ public abstract class Media implements Comparable<Media> {
 	
 	@Override 
 	public boolean equals(Object media) {
+		if  (!(media instanceof Media)) {
+			return false;
+		}
 		if (this.getId()==((Media)media).getId()) {
 			return true;
 		}

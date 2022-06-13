@@ -2,3 +2,20 @@ Which classes are aggregates of other classes?
 Answer:
 -	class Media, Book, Disc, CompactDisc, DigitalVideoDisc are aggregate of class Cart and Store
 -	class Track is aggregates of class CompactDisc
+
+If the passing object is not an instance of Media, what happens?
+Answer:
+- To warn the user about it, I use instanceof so that whenever the passing object isn't a Media instance, it'll return false.
+
+The Comparable interface is part of the Java class library. It is in java.lang package, so no import 
+statement is needed. Which method(s) do you need to implement from this interface?
+Answer:
+- The compare() method.
+
+Create an ArrayList of Media, then add some media (CD, DVD, or Book) to the list.
+Iterate through the list and print out the information of the media by using the toString() method. 
+Observe what happens and explain it in detail.
+Answer:
+- Although the elements of list are casting to type Media, when iterating through and printing result by toString() method, 
+each element still displays the toString() method that class implements, not the toString() method in Media class. This is 
+called dynamic binding, the type of object is determined during the execution of the program.

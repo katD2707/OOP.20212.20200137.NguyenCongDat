@@ -178,7 +178,6 @@ public class Aims {
 						System.out.println("Enter type of media: (cd/dvd/book)");
 						String type = input.nextLine();
 						
-						///////////////////////
 						System.out.println("Enter information for media: ");
 						System.out.println("Title of media (compulsory): ");
 						String addTitle = input.nextLine();
