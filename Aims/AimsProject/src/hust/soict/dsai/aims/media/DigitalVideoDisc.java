@@ -1,5 +1,12 @@
 package hust.soict.dsai.aims.media;
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import hust.soict.dsai.aims.playable.Playable;
 
 public class DigitalVideoDisc extends Disc implements Playable {
@@ -32,21 +39,33 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		this.length = length;
 	}	
 	
-	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
+	public JPanel play() {
+		JPanel play = new JPanel();
+		play.setLayout(new BoxLayout(play, BoxLayout.Y_AXIS));
+		
+		JLabel titleLabel = new JLabel("Playing DVD: " + this.getTitle());
+		titleLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		
+		JLabel lengthLabel;
+		
 		if (this.getLength()<=0) {
-			System.out.println("This DVD cannot be played");
+			lengthLabel = new JLabel("This DVD cannot be played");
 		}
 		else {
-			System.out.println("DVD length: " + this.getLength());
+			lengthLabel = new JLabel("DVD length: " + this.getLength());
 		}
+		lengthLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		play.add(titleLabel);
+		play.add(lengthLabel);
+		play.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		return play;
 	}
 	
 	public String toString() {
 		return "DVD - " + this.getTitle() + " - " + 
-				((this.getCategory()=="") ? null : this.getCategory()) + " - " + 
-				((this.getDirector()=="") ? null : this.getDirector()) + " - " + 
-				((this.getLength()==0) ? null : this.getLength()) + ": " + 
-				((this.getCost()==0.) ? null : (this.getCost() + "$")); 
+				this.getCategory() + " - " + 
+				this.getDirector() + " - " + 
+				this.getLength() + ": " + 
+				this.getCost() + "$"; 
 	}
 }

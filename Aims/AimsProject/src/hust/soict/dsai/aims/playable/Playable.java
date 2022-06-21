@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.playable;
 
+import javax.swing.JPanel;
+
 public interface Playable {
-	public void play();
+	public JPanel play();
 }
