@@ -62,4 +62,8 @@ public class Store {
 		System.out.println("No match is found");
 		return null;
 	}
+	
+	public ArrayList<Media> getItemsInStore()  {
+		return this.itemsInStore;
+	}
 }

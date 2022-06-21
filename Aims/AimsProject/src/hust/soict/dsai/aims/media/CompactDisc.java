@@ -1,6 +1,12 @@
 package hust.soict.dsai.aims.media;
 
+import java.awt.Color;
 import java.util.ArrayList;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import hust.soict.dsai.aims.playable.Playable;
 
@@ -24,6 +30,11 @@ public class CompactDisc extends Disc implements Playable {
 	
 	public CompactDisc(String title, String category, float cost) {
 		super(title, category, cost);
+	}
+	
+	public CompactDisc(String title, String category, String artist, float cost) {
+		super(title, category, cost);
+		this.artist = artist;
 	}
 	
 	public CompactDisc(String title, String category, float cost, String artist, ArrayList<Track> tracks) {
@@ -75,14 +86,39 @@ public class CompactDisc extends Disc implements Playable {
 		}
 	}
 	
-	public void play() {
-		System.out.println("Playing CD " + this.getTitle());
-		System.out.println("CD length: " + ((this.getLength()<=0)?null:this.getLength()));
-		System.out.println("CD artist: " + ((this.getArtist()=="")?null:this.getArtist()));
-		System.out.println("-------------------------------------------------------------------------");
-		for (Track  track: tracks) {
-			track.play();
+	public JPanel play() {
+		JPanel play = new JPanel();
+		play.setLayout(new BoxLayout(play, BoxLayout.Y_AXIS));
+		
+		JLabel titleLabel = new JLabel("Playing CD: " + this.getTitle());
+		titleLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		
+		JLabel lengthLabel;
+		
+		if (this.getLength()<=0) {
+			lengthLabel = new JLabel("This CD cannot be played");
 		}
+		else {
+			lengthLabel = new JLabel("CD length: " + this.getLength());
+		}
+		lengthLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		play.add(titleLabel);
+		play.add(lengthLabel);
+		
+		
+		if (this.getArtist()!=null) {
+			JLabel artistLabel = new JLabel("CD artist: " + this.getArtist());
+			artistLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+			play.add(artistLabel);
+		}
+		
+		for (Track  track: tracks) {
+			play.add(track.play());
+		}
+		play.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		return play;
+
+		
 	}
 	
 	public String toString() {
