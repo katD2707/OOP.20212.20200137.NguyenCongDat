@@ -73,9 +73,11 @@ public class MediaStore extends JPanel implements ActionListener {
             
             // setsize of dialog
             d.setSize(500,500);
- 
+            d.setLocationRelativeTo(null);
             // set visibility of dialog
             d.setVisible(true);
+            d.toFront();
         }
+        
 	}
 }

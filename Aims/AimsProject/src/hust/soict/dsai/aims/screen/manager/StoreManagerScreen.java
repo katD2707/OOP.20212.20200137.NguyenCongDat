@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -56,9 +58,20 @@ public class StoreManagerScreen extends JFrame {
 		menu.add(new JMenuItem("View store"));
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
-		smUpdateStore.add(new JMenuItem("Add Book"));
-		smUpdateStore.add(new JMenuItem("Add CD"));
-		smUpdateStore.add(new JMenuItem("Add DVD"));
+
+		JMenuItem book = new JMenuItem("Add book");
+		JMenuItem cd = new JMenuItem("Add CD");
+		JMenuItem dvd = new JMenuItem("Add DVD");
+	
+		book.addActionListener(new OptionListener());
+		cd.addActionListener(new OptionListener());
+		dvd.addActionListener(new OptionListener());
+		
+		smUpdateStore.add(book);
+		smUpdateStore.add(cd);
+		smUpdateStore.add(dvd);
+		
+
 		menu.add(smUpdateStore);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -88,7 +101,7 @@ public class StoreManagerScreen extends JFrame {
 	JPanel createCenter() {
 		
 		JPanel center = new JPanel();
-		center.setLayout(new GridLayout(3,3,2,2));
+		center.setLayout(new GridLayout(5,5,2,2));
 		
 		ArrayList<Media> mediaInStore = store.getItemsInStore();
 		for (int i=0;i<mediaInStore.size();i++) {
@@ -100,6 +113,24 @@ public class StoreManagerScreen extends JFrame {
 		return center;
 	}
 	
+	private class OptionListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			String command = e.getActionCommand();
+			if (command.equals("Add book")) {
+				new AddBookToStoreScreen(store);
+			} 
+			else if (command.equals("Add CD")) {
+				new AddCompactDiscToStoreScreen(store);	
+			}
+			else {
+				new AddDigitalVideoDiscToStoreScreen(store);
+			}
+			dispose();
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 				Store store = new Store();
