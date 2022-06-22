@@ -1,7 +1,12 @@
+Lab 05
+
 Which classes are aggregates of other classes?
 Answer:
 -	class Media, Book, Disc, CompactDisc, DigitalVideoDisc are aggregate of class Cart and Store
 -	class Track is aggregates of class CompactDisc
+
+--------------------------------------------------------------------------------------------------------------
+Lab 06
 
 If the passing object is not an instance of Media, what happens?
 Answer:
@@ -19,3 +24,20 @@ Answer:
 - Although the elements of list are casting to type Media, when iterating through and printing result by toString() method, 
 each element still displays the toString() method that class implements, not the toString() method in Media class. This is 
 called dynamic binding, the type of object is determined during the execution of the program.
+
+-------------------------------------------------------------------------------------------------------------
+Lab 07
+
+Make comparisons between AWT and Swing
+Answer:
+			AWT					|| 				Swing
+Container      ||      Frame                                    || 	      		       JFrame
+Class name     ||             Every class name in Swing is almost the same compare to that of AWT, it also has a J 
+					at the beginning of every class name to differentiate from AWT
+Event handling ||    The Components are set up in Frame		|| 	The JComponents are not added onto top-level container JFrame
+								||	Instead it's add to content-pane of JFrame 
+Scene	       ||  Default background color is white		||	Default background color is gray
+		   Can't close the window if don't set up from  ||  Can close the window but in fact, it is still running, we still 
+		   beginning					||  have to set up it 
+		   					The others is the same
+		   
