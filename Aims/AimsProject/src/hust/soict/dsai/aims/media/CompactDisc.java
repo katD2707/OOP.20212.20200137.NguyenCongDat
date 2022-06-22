@@ -63,7 +63,6 @@ public class CompactDisc extends Disc implements Playable {
 			}
 		}
 		tracks.add(track_pending);
-		System.out.println("Track has been added successfully");
 	}
 	
 	public void removeTrack(Track track_pending) {

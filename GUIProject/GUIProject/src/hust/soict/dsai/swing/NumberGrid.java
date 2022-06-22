@@ -67,7 +67,7 @@ public class NumberGrid extends JFrame {
 				tfDisplay.setText(tfDisplay.getText().substring(0, tfDisplay.getText().length()-1));
 			}
 			else {
-				tfDisplay.setText(" ");
+				tfDisplay.setText("");
 			}
 		}
 	}
