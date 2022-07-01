@@ -1,29 +1,26 @@
 package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
+import java.util.Random;
 
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.utils.MediaUtils;
-import java.util.Random;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	
 	public void addMedia(Media media) {
 		if (itemsOrdered.size()<MAX_NUMBERS_ORDERED) {
 			if (media != null) {
 				for (Media item: itemsOrdered) {
 					if (media.equals(item)) {
-						System.out.println("Media is already in cart");
 						return ;
 					}
 				}
 				this.itemsOrdered.add(media);
-				System.out.println("Media is added successfully");
 			}
-		}
-		else {
-			System.out.println("Cart is full");
 		}
 	}
 	
@@ -142,6 +139,8 @@ public class Cart {
 		return this.itemsOrdered.size();
 	}
 	
-	
+	public ObservableList<Media> getItemsOrdered() {
+		return this.itemsOrdered;
+	}
 }
 
