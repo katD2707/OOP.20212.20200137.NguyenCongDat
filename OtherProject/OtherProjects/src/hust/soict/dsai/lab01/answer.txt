@@ -1,0 +1,4 @@
+- What happens if users choose “Cancel”?
+*Answer: The javax.swing.JOptionPane.YES_OPTION returns value "Yes" if "Yes" Option is chosen, else it returns "No", then if we choose "Cancel" Option, it's not "Yes" option so it returns "No", that is "You've chosen: No" in full sentence.
+- How to customize the options to users, e.g., only two options: “Yes” and “No”, OR “I do” and “I don’t”?
+*Answer: Instead of JOptionPane.showConfirmDialog, we can use the method JOptionPane.showOptionDialog, because it allows us to create and store options in an array, and it returns an integer for the position that we click, using some if-else then it can return desired response, hence we can customize our options.
