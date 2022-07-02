@@ -9,7 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 public class ItemController {
-    @FXML
+    
+    private Media media;
+    
+	@FXML
     private Button btnAddToCart;
 
     @FXML
@@ -21,7 +24,6 @@ public class ItemController {
     @FXML
     private Label lblTitle;
     
-    private Media media;
 	public void setData(Media media) {
 		this.media = media;
 		lblTitle.setText(media.getTitle());
@@ -37,12 +39,12 @@ public class ItemController {
 	
     @FXML
     void btnAddToCartClicked(ActionEvent event) {
-
+    	
     }
 
     @FXML
     void btnPlayClicked(ActionEvent event) {
-
+    	
     }
 
 }
