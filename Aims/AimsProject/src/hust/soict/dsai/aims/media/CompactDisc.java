@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.playable.Playable;
 
 public class CompactDisc extends Disc implements Playable {
@@ -85,25 +87,15 @@ public class CompactDisc extends Disc implements Playable {
 		}
 	}
 	
-	public JPanel play() {
+	public JPanel play() throws PlayerException {
 		JPanel play = new JPanel();
 		play.setLayout(new BoxLayout(play, BoxLayout.Y_AXIS));
 		
 		JLabel titleLabel = new JLabel("Playing CD: " + this.getTitle());
 		titleLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		play.add(titleLabel);
 		
 		JLabel lengthLabel;
-		
-		if (this.getLength()<=0) {
-			lengthLabel = new JLabel("This CD cannot be played");
-		}
-		else {
-			lengthLabel = new JLabel("CD length: " + this.getLength());
-		}
-		lengthLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-		play.add(titleLabel);
-		play.add(lengthLabel);
-		
 		
 		if (this.getArtist()!=null) {
 			JLabel artistLabel = new JLabel("CD artist: " + this.getArtist());
@@ -111,9 +103,30 @@ public class CompactDisc extends Disc implements Playable {
 			play.add(artistLabel);
 		}
 		
-		for (Track  track: tracks) {
-			play.add(track.play());
+		if (this.getLength()<=0) {
+			lengthLabel = new JLabel("This CD cannot be played");
+			
+			JOptionPane.showMessageDialog(play, "Error: CD length is non-positive!",
+                    "Illegal DVD length", JOptionPane.ERROR_MESSAGE);
+			throw new PlayerException("Error: CD length is non-negative!");
 		}
+		else {
+			java.util.Iterator iter = tracks.iterator();
+			Track nextTrack;
+			while (iter.hasNext()) {
+				nextTrack = (Track) iter.next();
+				try {
+					play.add(nextTrack.play());
+				} catch (PlayerException e) {
+					throw e;
+				}
+			}
+			lengthLabel = new JLabel("CD length: " + this.getLength());
+		}
+		
+		lengthLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		play.add(lengthLabel);
+
 		play.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		return play;
 

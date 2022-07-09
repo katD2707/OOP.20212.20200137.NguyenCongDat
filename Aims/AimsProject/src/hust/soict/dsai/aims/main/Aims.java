@@ -2,6 +2,8 @@ package hust.soict.dsai.aims.main;
 
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
@@ -53,7 +55,7 @@ public class Aims {
 		System.out.println("Please choose a number: 0-1-2-3-4");
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws LimitExceededException {
 		Scanner input = new Scanner(System.in);
 		Store store = new Store();
 		Cart cart = new Cart();

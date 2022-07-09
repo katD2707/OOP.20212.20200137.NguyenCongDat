@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.cart;
-import java.util.ArrayList;
 import java.util.Random;
+
+import javax.naming.LimitExceededException;
 
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.utils.MediaUtils;
@@ -11,7 +12,7 @@ public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	
-	public void addMedia(Media media) {
+	public void addMedia(Media media) throws LimitExceededException {
 		if (itemsOrdered.size()<MAX_NUMBERS_ORDERED) {
 			if (media != null) {
 				for (Media item: itemsOrdered) {
@@ -21,27 +22,22 @@ public class Cart {
 				}
 				this.itemsOrdered.add(media);
 			}
+		} else {
+			throw new LimitExceededException("Error: The number of media has reached its limit");
 		}
 	}
 	
 	public void removeMedia(Media media) {
-		ArrayList<Media> newOrdered = new ArrayList<Media>();
+		ObservableList<Media> newOrdered = FXCollections.observableArrayList();;
 		
 		int before = itemsOrdered.size();
 		for (Media item: itemsOrdered) {
-			if (item.getTitle()!=media.getTitle()) {
+			if (!item.getTitle().equals(media.getTitle())) {
 				newOrdered.add(item);
 			}
 		}
 		this.itemsOrdered = newOrdered;
 		
-		int after = itemsOrdered.size();
-		if (before==after) {
-			System.out.println("No media has been removed");
-		}
-		else {
-			System.out.println((before-after) + " items has been removed");
-		}
 	}
 	
 	public float totalCost() {

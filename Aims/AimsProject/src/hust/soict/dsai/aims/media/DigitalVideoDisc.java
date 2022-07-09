@@ -5,8 +5,10 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.playable.Playable;
 
 public class DigitalVideoDisc extends Disc implements Playable {
@@ -39,7 +41,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		this.length = length;
 	}	
 	
-	public JPanel play() {
+	public JPanel play() throws PlayerException {
 		JPanel play = new JPanel();
 		play.setLayout(new BoxLayout(play, BoxLayout.Y_AXIS));
 		
@@ -50,6 +52,10 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		
 		if (this.getLength()<=0) {
 			lengthLabel = new JLabel("This DVD cannot be played");
+			JOptionPane.showMessageDialog(play, "Error: DVD length is non-positive!",
+                    "Illegal DVD length", JOptionPane.ERROR_MESSAGE);
+			throw new PlayerException("Error: DVD length is non-positive!");
+			
 		}
 		else {
 			lengthLabel = new JLabel("DVD length: " + this.getLength());

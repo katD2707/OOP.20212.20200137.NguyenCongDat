@@ -30,14 +30,20 @@ Lab 07
 
 Make comparisons between AWT and Swing
 Answer:
-			AWT					|| 				Swing
+											AWT					|| 						Swing
 Container      ||      Frame                                    || 	      		       JFrame
 Class name     ||             Every class name in Swing is almost the same compare to that of AWT, it also has a J 
-					at the beginning of every class name to differentiate from AWT
+										at the beginning of every class name to differentiate from AWT
 Event handling ||    The Components are set up in Frame		|| 	The JComponents are not added onto top-level container JFrame
-								||	Instead it's add to content-pane of JFrame 
+															||	Instead it's add to content-pane of JFrame 
 Scene	       ||  Default background color is white		||	Default background color is gray
-		   Can't close the window if don't set up from  ||  Can close the window but in fact, it is still running, we still 
-		   beginning					||  have to set up it 
-		   					The others is the same
-		   
+				   Can't close the window if don't set up   ||  Can close the window but in fact, it is still running, we still 
+				   from beginning 							||  have to set up it 
+		  		   									The others is the same
+
+-------------------------------------------------------------------------------------------------------------
+Lab 08
+The Aims class must be updated to handle any exceptions generated when the play() methods are called. 
+What happens when you don’t update for them to catch?
+
+Answer: It will raise Exception in compile time "Unhandled exception type NameOfException".

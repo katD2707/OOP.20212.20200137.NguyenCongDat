@@ -103,6 +103,10 @@ public abstract class Media implements Comparable<Media> {
 	}
 	
 	public int compareTo(Media media) {
+		if (media.getTitle()==null) {
+			throw new NullPointerException("Media doesn't have a title. Please add a title!");
+		}
+		
 		if (this.getTitle().compareToIgnoreCase(media.getTitle())==0) {
 			return this.getCategory().compareToIgnoreCase(media.getCategory());
 		}
@@ -114,9 +118,12 @@ public abstract class Media implements Comparable<Media> {
 	@Override 
 	public boolean equals(Object media) {
 		if  (!(media instanceof Media)) {
-			return false;
+			throw new ClassCastException("Object must be a Media");
 		}
-		if (this.getId()==((Media)media).getId()) {
+		if (((Media)media).getTitle()==null) {
+			throw new NullPointerException("Media doesn't have a title. Please add a title!");
+		}
+		if (this.getTitle().equals(((Media)media).getTitle()) && (this.getCost()==(((Media)media).getCost()))) {
 			return true;
 		}
 		return false;
